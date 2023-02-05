@@ -1,4 +1,4 @@
-def checkoutGitRepo(repoUrl, branch = "master") {
+def call(repoUrl, branch = "master") {
   checkout([
     $class: 'GitSCM',
     branches: [[name: "*/$branch"]],
