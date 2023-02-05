@@ -1,5 +1,8 @@
-def call(skipTests = false) {
-    def mvnCommand = skipTests ? "mvn clean install -DskipTests" : "mvn clean install"
+def call(mavenHome , skipTests = false) {
+    def mvnCommand = "${mavenHome}/bin/mvn clean install"
+    if (skipTests) {
+        mvnCommand += " -DskipTests"
+    }
 
     def process = mvnCommand.execute()
     process.waitFor()
