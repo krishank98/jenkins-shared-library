@@ -1,5 +1,5 @@
-def call(skipTests = false) {
-    def mvnCommand = "mvn clean install"
+def call(mavenHome , skipTests = false) {
+    def mvnCommand = "${mavenHome}/mvn clean install"
     if (skipTests) {
         mvnCommand += " -DskipTests"
     }
