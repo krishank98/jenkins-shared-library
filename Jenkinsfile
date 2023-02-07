@@ -17,9 +17,14 @@ pipeline{
             
             }
         }
-        stage ('mvn build'){
+        stage ('buildJar'){
             steps{
                 buildJar("/usr/local/sdkman/candidates/maven/current/",false)
+            }
+        }
+        stage('buildImage'){
+            steps{
+                buildImage('Dockerfile')
             }
         }
 }
